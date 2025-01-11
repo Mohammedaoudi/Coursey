@@ -1,0 +1,64 @@
+keycloak:
+  auth-server-url: http://keycloak:8080
+  realm: first-aid
+  client-id: mobile-first-aid
+  #client-secret: YDDuNGOJAd1ghL4fCzDzmsR3HahUtqOx
+  token-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid-connect/token
+  userinfo-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid-connect/userinfo
+  redirect-uri: com.firstaid.app:/oauth2callback
+
+spring:
+  application:
+    name: gateway-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}/protocol/openid-connect/certs
+
+server:
+  port: 8888
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka
+
+management:
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  observations:
+    key-values:
+      application: gateway-service
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+
+
+logging:
+  level:
+    org.springframework.web.reactive.function.client.ExchangeFunctions: DEBUG
+    com.ensa.projet.gatewayservice: DEBUG
+    reactor.netty.http.client: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.reactive: DEBUG
+
+loki:
+  url: http://localhost:3100/loki/api/v1/push
+
