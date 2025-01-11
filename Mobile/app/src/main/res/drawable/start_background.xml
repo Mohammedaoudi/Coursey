@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base white background -->
+    <item>
+        <shape>
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+
+    <!-- Circle 1 -->
+    <item>
+        <shape>
+            <solid android:color="#80FF93C5" /> <!-- Semi-transparent pink -->
+            <corners android:radius="100dp" />
+        </shape>
+        <padding
+            android:top="50dp"
+            android:left="30dp"
+            android:right="200dp"
+            android:bottom="200dp" />
+    </item>
+
+    <!-- Circle 2 -->
+    <item>
+        <shape>
+            <solid android:color="#40FF8BB0" /> <!-- More transparent pink -->
+            <corners android:radius="150dp" />
+        </shape>
+        <padding
+            android:top="200dp"
+            android:left="150dp"
+            android:right="50dp"
+            android:bottom="100dp" />
+    </item>
+
+    <!-- Circle 3 -->
+    <item>
+        <shape>
+            <solid android:color="#60FFD1E8" /> <!-- Slightly less transparent pink -->
+            <corners android:radius="80dp" />
+        </shape>
+        <padding
+            android:top="300dp"
+            android:left="50dp"
+            android:right="300dp"
+            android:bottom="50dp" />
+    </item>
+</layer-list>
