@@ -275,7 +275,7 @@ networks:
 ### Backend Setup
 ```bash
 # Clone repository
-git clone https://github.com/CHOUAY15/PFM-Coursey.git
+git clone https://github.com/Mohammedaoudi/Coursey.git
 
 # Navigate to backend directory
 cd backend
@@ -287,7 +287,7 @@ docker-compose -f docker-compose-local.yml up -d
 ### Web Client Setup
 ```bash
 # Navigate to web client directory
-cd web-client
+cd web
 
 # Install dependencies
 npm install
@@ -362,8 +362,7 @@ https://github.com/user-attachments/assets/5a34f712-7041-489e-9f2f-f039457cf8cd
 
 
 ## Contributors
-- **CHOUAY Walid**
-- **BESSAM Adam**
+
 - **DAOUDI Mohammed**
 
 ## License
